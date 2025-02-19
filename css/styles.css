@@ -9,6 +9,13 @@ body, html {
     height: 100vw;
     width: 100vh;
     overflow: hidden; /* Evita barras de rolagem */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.top-bar_text {
+    font-size: 26px;
+    font-weight: bold;
 }
 
 #map {
@@ -22,18 +29,16 @@ body, html {
 /* Barra superior fixa */
 .top-bar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 5px;
+    margin: 0 2.5vw 0 2.5vw;
+    width: 95%;
     height: 50px;
-    background-color: #333;
-    color: white;
+    background-color: #44A780;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
     border-radius: 10px;
-    text-align: center;
-    padding: 0 20px;  /* Padding lateral para o conteúdo da barra */
+    padding: 10px;  /* Padding lateral para o conteúdo da barra */
     z-index: 1000; /* Garante que a barra fique acima de outros elementos */
 }
 
@@ -48,14 +53,4 @@ body, html {
     text-align: center;
     padding: 10px;
     z-index: 1000; /* Garante que a barra fique acima de outros elementos */
-}
-
-/* Conteúdo da página */
-.content {
-    flex-grow: 1;
-    margin-top: 70px;  /* Espaço abaixo da barra superior */
-    margin-bottom: 50px;  /* Espaço acima da barra inferior */
-    background-color: #f4f4f4;
-    text-align: center;
-    padding: 20px;
 }
