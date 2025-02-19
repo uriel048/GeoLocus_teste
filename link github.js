@@ -1,0 +1,1 @@
+// https://uriel048.github.io/GeoLocus_teste?longitude=-49,321826&latitude=-28,60435&quadra=23&lote=3
