@@ -31,8 +31,9 @@ window.onload = function() {
   var descricao = `QUADRA: ${quadra}, LOTE: ${lote}`;
   
   function mudarTexto() {
-    var texto = document.getElementByClassNAme("top-bar_text");
-    texto.innerHTML = "Localização: " + quadra + ", " + lote;
+    document.getElementById("meuBotao").addEventListener("click", function() {
+      document.getElementByClassName("top-bar_text").innerText = "Localização: ";
+    });
   }
   
   // Inicializa o mapa

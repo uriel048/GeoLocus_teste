@@ -6,8 +6,8 @@
 
 /* Estilo do corpo da página */
 body, html {
-    height: 100vw;
-    width: 100vh;
+    height: 100vh;
+    width: 100vw;
     overflow: hidden; /* Evita barras de rolagem */
     display: flex;
     justify-content: center;
