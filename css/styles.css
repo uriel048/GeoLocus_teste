@@ -5,19 +5,12 @@
 }
 
 /* Estilo do corpo da página */
-body {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
 body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
+    height: 100vw;
+    width: 100vh;
     overflow: hidden; /* Evita barras de rolagem */
 }
+
 #map {
     position: absolute;
     top: 0;
@@ -41,6 +34,7 @@ body, html {
     border-radius: 10px;
     text-align: center;
     padding: 0 20px;  /* Padding lateral para o conteúdo da barra */
+    z-index: 1000; /* Garante que a barra fique acima de outros elementos */
 }
 
 /* Barra inferior fixa */
@@ -53,6 +47,7 @@ body, html {
     color: white;
     text-align: center;
     padding: 10px;
+    z-index: 1000; /* Garante que a barra fique acima de outros elementos */
 }
 
 /* Conteúdo da página */
