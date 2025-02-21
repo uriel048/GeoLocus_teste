@@ -32,7 +32,8 @@ window.onload = function() {
     // Obtém informações adicionais (quadra e lote)
     var quadra = params.get('quadra') || 'Desconhecida';
     var lote = params.get('lote') || 'Desconhecido';
-    document.getElementsById("quadraLote").innerText = `QUADRA: ${quadra} - LOTE: ${lote}`;
+    var descricao = `QUADRA: ${quadra} - LOTE: ${lote}`;
+    document.getElementById("quadraLote").innerText = descricao;
 
     // Inicializa o mapa
     var map = new mapboxgl.Map({
