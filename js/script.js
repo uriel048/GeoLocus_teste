@@ -3,39 +3,33 @@ function voltarPagina() {
 }
 
 window.onload = function() {
-    // Token de acesso do Mapbox
+    // token Mapbox
     mapboxgl.accessToken = 'pk.eyJ1IjoiZXN0b3BlbmciLCJhIjoiY203NTM2bHJ1MDlvaDJrcThpNDRvdHoweSJ9.XT2Le6CrUG3t4Va8OO-j_Q';
 
-    // Obtém parâmetros da URL  
+    // parametros da url e coordenadas  
     var params = new URLSearchParams(window.location.search);
     var lat = params.get('latitude');
     var lon = params.get('longitude');
 
-    // Verifica se as coordenadas foram fornecidas
+    // testa coordenadas
     if (!lat || !lon) {
         alert("Coordenadas inválidas! Certifique-se de fornecer latitude e longitude.");
         return;
     }
 
-    // Converte as coordenadas para números
+    // converte as coordenadas para float e troca as , por .
     var latitude = parseFloat(lat.replace(/,/g, '.'));
     var longitude = parseFloat(lon.replace(/,/g, '.'));
 
-    // Verifica se as coordenadas são números válidos
-    if (isNaN(latitude) || isNaN(longitude)) {
-        alert("Erro ao converter coordenadas. Certifique-se de que são números válidos.");
-        return;
-    }
-
     var pontoFinal = [longitude, latitude];
 
-    // Obtém informações adicionais (quadra e lote)
+    // quadra/lote da url e monta texto
     var quadra = params.get('quadra') || 'Desconhecida';
     var lote = params.get('lote') || 'Desconhecido';
     var descricao = `QUADRA: ${quadra} - LOTE: ${lote}`;
-    document.getElementById("quadraLote").innerText = descricao;
+    document.getElementById("top-bar_text").innerText = descricao;
 
-    // Inicializa o mapa
+    // carrega o mapa
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/estopeng/cm7570g5e002101s06iwcaqld',
@@ -43,19 +37,18 @@ window.onload = function() {
         zoom: 17
     });
 
-    // Adiciona controles de navegação
+    // controles navegacao
     map.addControl(new mapboxgl.NavigationControl());
 
-    // Adiciona um marcador no ponto final
+    // add ponto fixo
     var marker = new mapboxgl.Marker({ color: 'red' })
         .setLngLat(pontoFinal)
         .setPopup(new mapboxgl.Popup({ offset: 25 }).setText(descricao))
         .addTo(map);
-
-    // Abre o popup automaticamente
+    // abre o popup
     marker.togglePopup();
 
-    // Voar até o ponto final
+    // animacao ponto fixo
     map.on('load', function () {
         map.flyTo({
             center: pontoFinal,
@@ -66,7 +59,7 @@ window.onload = function() {
         });
     });
 
-    // Função para atualizar a localização do usuário
+    // atualizacao localizacao usuario
     function updateUserLocation(position) {
         var userCoords = [position.coords.longitude, position.coords.latitude];
         var userSource = map.getSource('user-location');
@@ -113,7 +106,7 @@ window.onload = function() {
         }
     }
 
-    // Inicia o rastreamento da localização do usuário
+    // inicia rastreio usuario
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(
             updateUserLocation,
