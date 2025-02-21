@@ -34,7 +34,7 @@ main {
 
 #map {
     position: absolute;
-    top: 0;
+    top: 60px;
     bottom: 0;
     right: 0;
     left: 0;
