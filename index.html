@@ -12,13 +12,18 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <section class="top-bar">
-        <img src="img/back.png" alt="Voltar" onclick="voltarPagina()" class="top-bar_back">
+    <header class="top-bar">
+        <img src="img/back_icon.png" alt="Voltar" onclick="voltarPagina()" class="icons">
         <p id="top-bar_text"></p>
         <p></p>
-    </section>
-    <section id="map"></section>
-
+    </header>
+    <main>
+        <section id="map"></section>
+        <button id="localizar">
+            <img src="img/map_icon.png" class="icons">
+            <label class="text">Me localizar</label>
+        </button>
+    </main>
     <script src="js/script.js"></script>
 </body>
 </html>

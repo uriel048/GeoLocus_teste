@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-weight: 500;
+    font-family: "Montserrat", serif;
 }
 
 /* Estilo do corpo da página */
@@ -9,21 +11,24 @@ body, html {
     height: 100vh;
     width: 100vw;
     overflow: hidden; /* Evita barras de rolagem */
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
 }
 
-.top-bar_back {
+main {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    width: 100%;
+    height: 100%;
+}
+
+.icons {
     width: 24px;
     height: 24px;
     cursor: pointer;
 }
 
 #top-bar_text {
-    font-size: 18px;
-    font-weight: 500;
-    font-family: "Montserrat", serif;
+    font-size: 20px;
     color: white;
 }
 
@@ -50,4 +55,28 @@ body, html {
     border-radius: 10px;
     padding: 10px;  /* Padding lateral para o conteúdo da barra */
     z-index: 1000; /* Garante que a barra fique acima de outros elementos */
+}
+
+#localizar {
+    background-color: #c1402c;
+    cursor: pointer;
+    z-index: 1000;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 2.5%;
+    padding: 16px;
+    gap: 8px;
+    height: 50px;
+}
+
+#localizar:hover {
+    background-color: #ff5a3c;
+}
+
+.text {
+    color: white;
+    font-size: 16px;
 }
