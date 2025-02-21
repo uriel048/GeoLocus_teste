@@ -59,11 +59,11 @@ window.onload = function() {
         });
     });
 
-    // botao para localizar
+    // botao pra localizar
     setTimeout(function() {
         document.getElementById("localizar").style.display = "flex";
     }, 4000);
-    
+
     // centraliza mapa
     document.getElementById("localizar").addEventListener("click", function() {
         if (userCoords) {
