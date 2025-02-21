@@ -2,9 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Montserrat", serif;
-    font-weight: 500;
-
 }
 
 /* Estilo do corpo da página */
@@ -17,7 +14,7 @@ body, html {
     flex-direction: column;
 }
 
-.icons {
+.top-bar_back {
     width: 24px;
     height: 24px;
     cursor: pointer;
@@ -25,6 +22,8 @@ body, html {
 
 #top-bar_text {
     font-size: 18px;
+    font-weight: 500;
+    font-family: "Montserrat", serif;
     color: white;
 }
 
@@ -34,9 +33,6 @@ body, html {
     bottom: 0;
     right: 0;
     left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: end;
 }
 
 /* Barra superior fixa */
@@ -54,30 +50,4 @@ body, html {
     border-radius: 10px;
     padding: 10px;  /* Padding lateral para o conteúdo da barra */
     z-index: 1000; /* Garante que a barra fique acima de outros elementos */
-}
-
-#mostrarLocalizacao {
-    margin: 2.5%;
-    background-color: #c1402c;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    display: none;
-    z-index: 1000;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-}
-
-#mostrarLocalizacao:hover,  {
-    background-color: #ff5a3c;
-    cursor: pointer;
-}
-
-.text {
-    font-size: 16px;
-    color: white;
-    cursor: pointer;
 }
