@@ -58,7 +58,7 @@ main {
 }
 
 #localizar {
-    background-color: #c1402c;
+    background-color: #c1402c;;
     cursor: pointer;
     z-index: 1000;
     display: none;
@@ -66,10 +66,11 @@ main {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    margin: 2.5%;
+    margin: 5%;
     padding: 16px;
     gap: 8px;
     height: 50px;
+    position: absolute;
 }
 
 #localizar:hover {

@@ -63,6 +63,7 @@ window.onload = function() {
     setTimeout(function() {
         document.getElementById("localizar").style.display = "flex";
     }, 4000);
+    
     // centraliza mapa
     document.getElementById("localizar").addEventListener("click", function() {
         if (userCoords) {
@@ -82,51 +83,51 @@ window.onload = function() {
     
     var userCoords = null; // Armazena a posição do usuário
 
-// Atualiza a posição do usuário sempre que mudar
-function updateUserLocation(position) {
-    userCoords = [position.coords.longitude, position.coords.latitude]; // Salva coordenadas atualizadas
+    // Atualiza a posição do usuário sempre que mudar
+    function updateUserLocation(position) {
+        userCoords = [position.coords.longitude, position.coords.latitude]; // Salva coordenadas atualizadas
 
-    var userSource = map.getSource('user-location');
-    var geoJsonData = {
-        type: "FeatureCollection",
-        features: [{
-            type: "Feature",
-            geometry: {
-                type: "Point",
-                coordinates: userCoords
-            }
-        }]
-    };
+        var userSource = map.getSource('user-location');
+        var geoJsonData = {
+            type: "FeatureCollection",
+            features: [{
+                type: "Feature",
+                geometry: {
+                    type: "Point",
+                    coordinates: userCoords
+                }
+            }]
+        };
 
-    if (userSource) {
-        userSource.setData(geoJsonData);
-    } else {
-        map.addSource('user-location', { type: 'geojson', data: geoJsonData });
-        map.addLayer({
-            id: 'user-location-point',
-            type: 'circle',
-            source: 'user-location',
-            paint: {
-                'circle-radius': 10,
-                'circle-color': '#ffffff',
-                'circle-stroke-color': '#007AFF',
-                'circle-stroke-width': 3
-            }
-        });
+        if (userSource) {
+            userSource.setData(geoJsonData);
+        } else {
+            map.addSource('user-location', { type: 'geojson', data: geoJsonData });
+            map.addLayer({
+                id: 'user-location-point',
+                type: 'circle',
+                source: 'user-location',
+                paint: {
+                    'circle-radius': 10,
+                    'circle-color': '#ffffff',
+                    'circle-stroke-color': '#007AFF',
+                    'circle-stroke-width': 3
+                }
+            });
+        }
     }
-}
 
-// Ativa rastreamento contínuo
-if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(
-        updateUserLocation,
-        function(error) {
-            console.error("Erro ao obter localização: ", error);
-            alert("Erro ao obter localização. Certifique-se de que a geolocalização está ativada.");
-        },
-        { enableHighAccuracy: true }
-    );
-} else {
-    alert("Geolocalização não suportada no seu navegador.");
-}
+    // Ativa rastreamento contínuo
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(
+            updateUserLocation,
+            function(error) {
+                console.error("Erro ao obter localização: ", error);
+                alert("Erro ao obter localização. Certifique-se de que a geolocalização está ativada.");
+            },
+            { enableHighAccuracy: true }
+        );
+    } else {
+        alert("Geolocalização não suportada no seu navegador.");
+    }
 };
