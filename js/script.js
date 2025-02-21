@@ -32,14 +32,7 @@ window.onload = function() {
     // Obtém informações adicionais (quadra e lote)
     var quadra = params.get('quadra') || 'Desconhecida';
     var lote = params.get('lote') || 'Desconhecido';
-    var descricao = `QUADRA: ${quadra} - LOTE: ${lote}`;
-    document.getElementsByClassName("top-bar_text").innerText = descricao;
-
-    function mudarTexto() {
-    document.getElementById("meuBotao").addEventListener("click", function() {
-        document.getElementByClassName("top-bar_text").innerText = "Localização: ";
-    });
-    }
+    document.getElementsById("top-bar_text").innerText = "QUADRA: "+quadra+" - LOTE: "+lote;
 
     // Inicializa o mapa
     var map = new mapboxgl.Map({

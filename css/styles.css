@@ -20,7 +20,7 @@ body, html {
     cursor: pointer;
 }
 
-.top-bar_text {
+#top-bar_text {
     font-size: 18px;
     font-weight: 500;
     font-family: "Montserrat", serif;
